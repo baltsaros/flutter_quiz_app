@@ -1,15 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_quiz_app/column_container.dart';
+import 'package:flutter_quiz_app/quiz.dart';
 
-void main(){
+void main() {
   runApp(
-    const MaterialApp(
-      home: Scaffold(
-        body: ColumnContainer(
-          bgColor: Colors.purple,
-          message: 'Learn Flutter the fun way!'
-        ),
-      ),
-    ),
+    const Quiz(),
   );
 }

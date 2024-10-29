@@ -19,7 +19,7 @@ class StartScreen extends StatelessWidget {
             color: const Color.fromARGB(155, 255, 255, 255),
           ),
           Padding(
-            padding: EdgeInsets.only(
+            padding: const EdgeInsets.only(
               top: 40,
               bottom: 30,
             ),

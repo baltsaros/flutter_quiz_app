@@ -12,21 +12,40 @@ class QuestionsSummary extends StatelessWidget {
       height: 400,
       child: SingleChildScrollView(
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: quizSummary.map((data) {
             return Row(
               children: [
-                Text(
-                  ((data['question_index'] as int) + 1).toString(),
-                  textAlign: TextAlign.right,
+                TextButton(
+                  onPressed: (){},
+                  style: TextButton.styleFrom(
+                    foregroundColor: Colors.black,
+                    backgroundColor: data['user_answer'] == data['correct_answer'] ? Colors.cyanAccent : const Color.fromARGB(255, 253, 50, 236),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(50),
+                    ),
+                    padding: const EdgeInsets.symmetric(
+                      vertical: 25,
+                    ),
+                  ),
+                  child: Text(
+                    ((data['question_index'] as int) + 1).toString(),
+                    textAlign: TextAlign.right,
+                    style: const TextStyle(
+                      fontSize: 16,
+                    ),
+                  ),
                 ),
+                const SizedBox(width: 10,),
                 Expanded(
                   child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
                         data['question'] as String,
                         style: GoogleFonts.lato(
                           color: Colors.white,
-                          fontSize: 14,
+                          fontSize: 16,
                         ),
                         textAlign: TextAlign.left,
                       ),
@@ -36,7 +55,7 @@ class QuestionsSummary extends StatelessWidget {
                       Text(
                         data['user_answer'] as String,
                         style: GoogleFonts.lato(
-                          color: const Color.fromARGB(255, 245, 168, 219),
+                          color: const Color.fromARGB(255, 255, 107, 218),
                           fontSize: 12,
                         ),
                         textAlign: TextAlign.left,
@@ -44,11 +63,12 @@ class QuestionsSummary extends StatelessWidget {
                       Text(
                         data['correct_answer'] as String,
                         style: GoogleFonts.lato(
-                          color: const Color.fromARGB(255, 119, 50, 230),
+                          color: const Color.fromARGB(255, 53, 215, 255),
                           fontSize: 12,
                         ),
                         textAlign: TextAlign.left,
                       ),
+                      const SizedBox(height: 20,),
                     ],
                   ),
                 ),

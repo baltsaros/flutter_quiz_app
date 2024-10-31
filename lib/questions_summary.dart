@@ -16,23 +16,20 @@ class QuestionsSummary extends StatelessWidget {
           children: quizSummary.map((data) {
             return Row(
               children: [
-                TextButton(
-                  onPressed: (){},
-                  style: TextButton.styleFrom(
-                    foregroundColor: Colors.black,
-                    backgroundColor: data['user_answer'] == data['correct_answer'] ? Colors.cyanAccent : const Color.fromARGB(255, 253, 50, 236),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(50),
-                    ),
-                    padding: const EdgeInsets.symmetric(
-                      vertical: 25,
-                    ),
+                Container(
+                  width: 40,
+                  height: 40,
+                  decoration: BoxDecoration(
+                    color: data['user_answer'] == data['correct_answer'] ? Colors.cyanAccent : const Color.fromARGB(255, 253, 50, 236),
+                    borderRadius: BorderRadius.circular(100),
                   ),
+                  alignment: Alignment.center,
                   child: Text(
                     ((data['question_index'] as int) + 1).toString(),
-                    textAlign: TextAlign.right,
                     style: const TextStyle(
                       fontSize: 16,
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
                     ),
                   ),
                 ),
@@ -46,6 +43,7 @@ class QuestionsSummary extends StatelessWidget {
                         style: GoogleFonts.lato(
                           color: Colors.white,
                           fontSize: 16,
+                          fontWeight: FontWeight.bold,
                         ),
                         textAlign: TextAlign.left,
                       ),
